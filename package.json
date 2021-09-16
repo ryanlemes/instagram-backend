@@ -46,7 +46,9 @@
     "@pact-foundation/pact": "^9.16.1",
     "@types/jest": "^27.0.1",
     "@types/koa": "^2.13.4",
-    "@types/koa-router": "^7.4.4",
+    "@types/koa__multer": "^2.0.3",
+    "@types/koa__router": "^8.0.8",
+    "@types/multer": "^1.4.7",
     "@types/node": "^16.9.1",
     "@types/supertest": "^2.0.11",
     "@typescript-eslint/eslint-plugin": "^4.31.1",
@@ -61,9 +63,11 @@
     "typescript": "^4.4.2"
   },
   "dependencies": {
+    "@koa/multer": "^3.0.0",
+    "@koa/router": "^10.1.1",
     "dotenv": "^10.0.0",
     "koa": "^2.13.1",
-    "koa-router": "^10.1.1",
-    "mongoose": "^6.0.6"
+    "mongoose": "^6.0.6",
+    "multer": "^1.4.3"
   }
 }
