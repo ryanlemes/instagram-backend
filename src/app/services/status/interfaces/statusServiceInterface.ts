@@ -1,7 +1,7 @@
 export interface Info {
   status: number,
-  date_time: string,
-  code_version: string,
+  dateTime: string,
+  codeVersion: string,
 }
 
 export interface Health {
