@@ -10,6 +10,9 @@ export default {
     name: process.env.SERVICE_NAME,
     code_version: process.env.CODE_VERSION || '1.0.0',
   },
+  database: {
+    url: process.env.DB_URI || undefined,
+  },
   pactEnv: {
     broker: {
       url: process.env.PACT_BROKER_URL,
