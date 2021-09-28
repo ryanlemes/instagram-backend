@@ -10,10 +10,13 @@ export interface PostBody {
   description: string,
   hashtags: string,
   image: string,
+  likes: number,
 }
 
 export interface PostService {
+  findOne: () => Promise<ServiceResponse>;
   findAll: () => Promise<ServiceResponse>;
   createNew: () => Promise<ServiceResponse>;
+  updateOne: () => Promise<ServiceResponse>;
   deleteOne: () => Promise<ServiceResponse>;
 }
