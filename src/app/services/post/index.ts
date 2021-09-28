@@ -70,7 +70,9 @@ function PostService() {
    * @returns a message if the post was removed
    */
   const deleteOne = async (id: string): Promise<ServiceResponse> => {
-    await Post.findByIdAndRemove(id);
+
+    const post = await findOne(id);
+    post?.delete();
 
     return {
       status: 200,
