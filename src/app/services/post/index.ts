@@ -1,3 +1,4 @@
+import { PostDoc } from '../../models/interfaces/post';
 import Post from '../../models/Post';
 import { ServiceResponse, PostBody } from './interfaces/postServiceInterface';
 
@@ -45,15 +46,15 @@ function PostService() {
    * @returns the post object updated
    */
   const updateOne = async (id: string, body: PostBody): Promise<ServiceResponse> => {
-    const post = await Post.findOne({ id });
+    const post: PostDoc = await Post.findOne({ id }) as PostDoc;
 
     const update: any = {};
-    post.author != body.author ? update.author = body.author : null;
-    post.place != body.place ? update.place = body.place : null;
-    post.description != body.description ? update.description = body.description : null;
-    post.hashtags != body.hashtags ? update.hashtags = body.hashtags : null;
-    post.image != body.image ? update.image = body.image : null;
-    post.likes != body.likes ? update.likes = body.likes : null;
+    if (post.author !== body.author) update.author = body.author;
+    if (post.place !== body.place) update.place = body.place;
+    if (post.description !== body.description) update.description = body.description;
+    if (post.hashtags !== body.hashtags) update.hashtags = body.hashtags;
+    if (post.image !== body.image) update.image = body.image;
+    if (post.likes !== body.likes) update.likes = body.likes;
 
     await post?.updateOne(update);
 
@@ -70,7 +71,6 @@ function PostService() {
    * @returns a message if the post was removed
    */
   const deleteOne = async (id: string): Promise<ServiceResponse> => {
-
     const post = await findOne(id);
     post?.delete();
 

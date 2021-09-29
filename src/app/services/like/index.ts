@@ -1,3 +1,4 @@
+import { PostDoc } from '../../models/interfaces/post';
 import postService from '../post';
 import { PostService, ServiceResponse } from '../post/interfaces/postServiceInterface';
 
@@ -10,7 +11,7 @@ function LikeService(_postService?: PostService) {
    * @returns a status if the post was liked or not
    */
   const add = async (id: string): Promise<ServiceResponse> => {
-    const post = await service.findOne(id);
+    const post = await service.findOne(id) as PostDoc;
     const likes = post?.likes + 1;
     const newPost: any = {
       likes,
@@ -30,7 +31,7 @@ function LikeService(_postService?: PostService) {
    * @returns a status if the post was disliked or not
    */
   const remove = async (id: string): Promise<ServiceResponse> => {
-    const post = await service.findOne(id);
+    const post = await service.findOne(id) as PostDoc;
 
     if (post?.likes > 0) {
       const likes = post?.likes - 1;
