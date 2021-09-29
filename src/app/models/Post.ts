@@ -1,4 +1,5 @@
 import { Schema, model } from 'mongoose';
+import { PostDoc } from './interfaces/post';
 
 const PostSchema = new Schema({
   author: String,
@@ -6,12 +7,9 @@ const PostSchema = new Schema({
   description: String,
   hashtags: String,
   image: String,
-  likes: {
-    type: Number,
-    default: 0,
-  },
+  likes: Number,
 }, {
   timestamps: true,
 });
 
-export default model('Post', PostSchema);
+export = model<PostDoc>('Post', PostSchema);
