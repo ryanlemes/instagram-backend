@@ -36,6 +36,7 @@ function PostController(_postService?: PostService) {
       hashtags,
       place,
       image: encodedFile,
+      likes: 0,
     };
 
     const responseService = await service.createNew(body);
