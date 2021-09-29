@@ -1,5 +1,6 @@
 # Instagram backend
----
+
+[![build](https://github.com/ryanlemes/instagram-backend/actions/workflows/build.yml/badge.svg)](https://github.com/ryanlemes/instagram-backend/actions/workflows/build.yml)
 
 ## Explanation
 
