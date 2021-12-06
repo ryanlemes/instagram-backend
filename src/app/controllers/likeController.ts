@@ -11,6 +11,7 @@ function LikeController(_likeService?: LikeService) {
       const service = await likeService.add(id);
       ctx.status = 200;
       ctx.body = service;
+      ctx.io.emit('post', service.data);
     } catch (e) {
       ctx.status = 500;
       ctx.body = {
