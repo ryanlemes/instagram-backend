@@ -21,7 +21,7 @@ function PostController(_postService?: PostService) {
   };
 
   const store = async (ctx: Context) => {
-    const file = ctx.request.file;
+    const { file } = ctx.request;
     const {
       author,
       place,
@@ -40,6 +40,7 @@ function PostController(_postService?: PostService) {
     };
 
     const responseService = await service.createNew(body);
+    ctx.io.emit('post', responseService.data);
     ctx.body = responseService;
   };
 
